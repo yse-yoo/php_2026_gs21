@@ -11,10 +11,10 @@
 | 文字コード | DB_CHARSET | utf8mb4 |
 */
 
-const DB_CONNECTION = '';
-const DB_HOST = '';
-const DB_PORT = '';
-const DB_USERNAME = '';
+const DB_CONNECTION = 'mysql';
+const DB_HOST = '127.0.0.1'; // 127.0.0.1
+const DB_PORT = '3306';
+const DB_USERNAME = 'root';
 const DB_PASSWORD = '';
-const DB_DATABASE = '';
+const DB_DATABASE = 'php_sns';
 const DB_CHARSET = 'utf8mb4';
