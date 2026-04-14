@@ -14,10 +14,10 @@ function get($limit = 50)
     // データベースに接続
     $pdo = Database::getInstance();
     // SQLを用意する
-    $sql = "SELECT * FROM users";
+    $sql = "SELECT * FROM users LIMIT :limit";
     $stmt = $pdo->prepare($sql);
     // SQL実行
-    $stmt->execute();
+    $stmt->execute(['limit' => $limit]);
     // データをすべて取り出す
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
