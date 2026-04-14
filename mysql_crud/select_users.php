@@ -4,7 +4,11 @@ require_once './lib/Database.php';
 
 use Lib\Database;
 
-$users = get();
+$limit = 50; // デフォルトの件数
+if (isset($_GET['limit']) && is_numeric($_GET['limit'])) {
+    $limit = (int) $_GET['limit'];
+}
+$users = get($limit);
 
 /**
  * ユーザデータを取得する関数
