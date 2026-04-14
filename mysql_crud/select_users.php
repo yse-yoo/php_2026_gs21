@@ -11,28 +11,15 @@ $users = get();
  */
 function get($limit = 50)
 {
-    // TODO: DB接続：Database クラスのシングルトンメソッドで $pdo を取得
-    // ヒント: クラス名::getInstance()
-    $pdo = null;
-
-    // TODO : users テーブルから件数を絞って全カラムを取得する SELECT 文
-    // LIMIT にはプレースホルダー :limit を使う
-    $sql = "";
-
-    // TODO : プリペアドステートメントを作成
-    // ヒント: $pdo->prepare($sql)
-    $stmt = null;
-
-    // TODO : :limit プレースホルダーに値をバインド（コメントを外す）
-    // $stmt->bindValue(':limit', (int)$limit, null);
-
-    // TODO : users テーブルから最大件数を指定して取得する SQL
-    // SQL: SELECT * FROM users LIMIT :limit
-    // $stmt->execute()
-
-    // TODO : 全件を連想配列で取得して return
-    // $stmt->fetchAll(PDO::FETCH_ASSOC)
-    return null;
+    // データベースに接続
+    $pdo = Database::getInstance();
+    // SQLを用意する
+    $sql = "SELECT * FROM users";
+    $stmt = $pdo->prepare($sql);
+    // SQL実行
+    $stmt->execute();
+    // データをすべて取り出す
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
 ?>
