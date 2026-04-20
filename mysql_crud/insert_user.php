@@ -40,6 +40,10 @@ function insert($posts)
         // TODO: パスワードをハッシュ化
         // password_hash(元のパスワード, PASSWORD_DEFAULT)
         $posts['password'] = password_hash($posts['password'], PASSWORD_DEFAULT);
+        // Debug: ハッシュ化されたパスワードを確認
+        var_dump($posts);
+        // 強制終了
+        exit;
 
         // DB接続
         $pdo = Database::getInstance();
