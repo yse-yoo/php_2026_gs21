@@ -34,11 +34,11 @@ function find($id)
         $stmt = $pdo->prepare($sql);
 
         // TODO : execute() の引数に ['id' => $id] を渡してプレースホルダーをバインドする
-        // $stmt->execute(...);
+        $stmt->execute(['id' => $id]);
 
         // TODO : 1件を連想配列で取得して return してください
         //   ヒント: fetch(PDO::FETCH_ASSOC)
-        return null;
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
         error_log($e->getMessage());
         return null;
