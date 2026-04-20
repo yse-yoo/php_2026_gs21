@@ -39,7 +39,7 @@ function insert($posts)
     try {
         // TODO: パスワードをハッシュ化
         // password_hash(元のパスワード, PASSWORD_DEFAULT)
-        $posts['password'] = null;
+        $posts['password'] = password_hash($posts['password'], PASSWORD_DEFAULT);
 
         // DB接続
         $pdo = Database::getInstance();
