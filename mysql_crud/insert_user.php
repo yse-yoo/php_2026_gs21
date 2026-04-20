@@ -41,16 +41,18 @@ function insert($posts)
         // password_hash(元のパスワード, PASSWORD_DEFAULT)
         $posts['password'] = password_hash($posts['password'], PASSWORD_DEFAULT);
         // Debug: ハッシュ化されたパスワードを確認
-        var_dump($posts);
+        // var_dump($posts);
         // 強制終了
-        exit;
+        // exit;
 
         // DB接続
         $pdo = Database::getInstance();
 
         // TODO: INSERT文
         $sql = "";
-        // $sql = "INSERT INTO users (account_name, email, display_name, password) VALUES (:account_name, :email, :display_name, :password)";
+        $sql = "INSERT INTO users 
+                    (account_name, email, display_name, password) 
+                VALUES (:account_name, :email, :display_name, :password)";
 
         // SQLを設定して、プリペアードステートメントを生成
         $stmt = $pdo->prepare($sql);
