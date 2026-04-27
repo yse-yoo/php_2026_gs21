@@ -18,15 +18,15 @@ $card = new BaseCard(
 // TODO: インスタンス $card のプロパティを配列に格納
 $stats = [
     'Name' => $card->name,
-    'Level' => "",
-    'HP' => "",
-    'MP' => "",
-    'Attack' => "",
-    'Defense' => "",
-    'Element' => "",
-    'Experience' => "",
-    'Skill' => "",
-    'Skill Power' => "",
+    'Level' => $card->level,
+    'HP' => "{$card->hp}/{$card->maxHp}",
+    'MP' => "{$card->mp}/{$card->maxMp}",
+    'Attack' => $card->attack,
+    'Defense' => $card->defense,
+    'Element' => $card->element,
+    'Experience' => $card->exp,
+    'Skill' => $card->specialSkill,
+    'Skill Power' => $card->specialSkillPower,
 ];
 
 ?>
@@ -54,6 +54,7 @@ $stats = [
             <div class="w-64 flex-shrink-0">
                 <div class="tcg-card rounded-2xl p-2 shadow-2xl">
                     <!-- TODO: views/card.php を読み込む -->
+                    <?php include 'views/card.php'; ?>
                 </div>
                 <div class="mt-4 flex flex-col gap-2">
                     <a href="./" class="bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-md">戻る</a>
