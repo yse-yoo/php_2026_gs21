@@ -14,8 +14,11 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $_SESSION[APP_KEY]['signin'] = null;
 
 // TODO: 入力されたアカウント名とパスワードを取得
-$account_name = "";
-$password = "";
+$account_name = $_POST['account_name'];
+$password = $_POST['password'];
+
+// var_dump($account_name, $password);
+// exit;
 
 // ユーザ認証: new User() で auth() を実行
 $user = new User();
