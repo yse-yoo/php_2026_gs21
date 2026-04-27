@@ -146,6 +146,11 @@ class User extends Model
             if (password_verify($password, $user['password'])) {
                 return $user;
             }
+            // NG
+            // if ($password == $user['password']) {
+            //     return $user;
+            // }
+
         } catch (PDOException $e) {
             error_log($e->getMessage());
         }
