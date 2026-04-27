@@ -1,23 +1,23 @@
 <?php
 // TODO: モデルクラス models/BaseCard.php を読み込む
-// require_once 'models/BaseCard.php';
+require_once 'models/BaseCard.php';
 
 // // TODO: BaseCard クラスのインスタンスを作成
-// $card = new BaseCard(
-//     '水の精霊',
-//     18,
-//     25,
-//     100,
-//     3,
-//     '水',
-//     'AquaCard.png',
-//     'ハイドロポンプ',
-//     35
-// );
+$card = new BaseCard(
+    '水の精霊',
+    18,
+    25,
+    100,
+    3,
+    '水',
+    'AquaCard.png',
+    'ハイドロポンプ',
+    35
+);
 
 // TODO: インスタンス $card のプロパティを配列に格納
 $stats = [
-    'Name' => "",
+    'Name' => $card->name,
     'Level' => "",
     'HP' => "",
     'MP' => "",
