@@ -134,7 +134,7 @@ class User extends Model
         $pdo = self::pdo();
         // TODO: SQL作成: アカウント名でユーザを検索
         $sql = "SELECT * FROM users 
-                WHERE account_name = :account_name  ";
+                WHERE account_name = :account_name";
         try {
             // SQL用意
             $stmt = $pdo->prepare($sql);
