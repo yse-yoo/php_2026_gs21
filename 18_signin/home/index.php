@@ -5,7 +5,8 @@ require_once '../app.php';
 use App\Models\AuthUser;
 
 // ログインチェック
-$auth_user = AuthUser::check();
+// $auth_user = AuthUser::check();
+$auth_user = $_SESSION[APP_KEY]['signin'];
 
 // TODO: セッション（auth_user) からログインチェック
 // if (empty($auth_user)) {
