@@ -33,6 +33,7 @@ if (empty($auth_user['id'])) {
     exit;
 } else {
     // TODO: 認証成功時はセッションにユーザデータを保存: APP_KEY の signin
+    $_SESSION[APP_KEY]['signin'] = $auth_user;
 
     // ユーザトップページにリダイレクト: home/
     header('Location: ../home/');
