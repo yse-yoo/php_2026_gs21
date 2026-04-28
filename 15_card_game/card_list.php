@@ -15,6 +15,7 @@ $cards = [
 
 // セッション開始
 session_start();
+session_regenerate_id(true);
 
 // カードリセット
 unset($_SESSION['player_card']);
