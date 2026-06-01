@@ -43,12 +43,12 @@ const searchAddress = async (zipcode) => {
     try {
         const query_param = new URLSearchParams({ zipcode: zipcode, })
         // TODO: SEARCH_URI に zipcode を追加
-        const uri = SEARCH_URI;
+        const uri = SEARCH_URI + '?' + query_param.toString();
         console.log(uri);
         // TODO: fetch(): 郵便番号検索APIにアクセス（非同期）
-        const response = {}; 
+        const response = await fetch(uri)
         // TODO: JSONデータを変換（非同期）
-        const data = {};
+        const data = await response.json()
         return data;
     } catch (error) {
         errorDisplay.innerHTML = error;
@@ -64,18 +64,19 @@ const searchHandler = async () => {
 
     errorDisplay.innerHTML = '';
     // モーダルを表示
-    loadingModal.classList.remove('hidden');
+    // loadingModal.classList.remove('hidden');
 
     try {
         // TODO: 郵便番号検索APIにアクセス
         const data = await searchAddress(zipcode);
+        console.log(data);
         
         if (data && data.results) {
             const results = data.results[0];
             // TODO: value に都道府県コード設定: prefcode
-            document.getElementById('prefecture').value = "";
+            document.getElementById('prefecture').value = data.results[0].prefcode;
             // TODO: テキストに住所設定: address2, address3
-            document.getElementById('city').value = "";
+            document.getElementById('city').value = data.results[0].address2 + data.results[0].address3;
         } else {
             errorDisplay.innerHTML = data.message || '住所が見つかりませんでした';
         }
