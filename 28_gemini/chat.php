@@ -3,7 +3,7 @@ require_once 'env.php';
 require_once 'services/GeminiService.php';
 
 // TODO: POSTされたプロンプトを取得
-$prompt = '';
+$prompt = $_POST['prompt'] ?? '';
 $result = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
