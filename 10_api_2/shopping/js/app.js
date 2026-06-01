@@ -223,9 +223,9 @@ async function removeItem(productId) {
 
     // TODO: POSTリクエストで商品ID(id = productId)を送信
     const result = await fetch(uri, {
-        method: '',
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: "",
+        body: JSON.stringify({ productId }),
     });
     // JSON形式でレスポンスを取得
     const data = await result.json();
@@ -293,4 +293,5 @@ cartCloseBtn.addEventListener('click', () => cartModal.classList.add('hidden'));
     // 商品データ
     await fetchProducts();
     // TODO: カート照合: fetchInitialCart(非同期)
+    await fetchInitialCart();
 })();
