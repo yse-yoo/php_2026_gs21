@@ -123,15 +123,16 @@ async function fetchInitialCart() {
 async function addToCart(productId) {
     try {
         // TODO: カート追加APIのURLを指定: api/cart/add.php
-        const uri = "";
+        const uri = "api/cart/add.php";
         // TODO: POSTリクエストで商品ID(productId)を JSONで送信
         const response = await fetch(uri, {
-            method: '',
+            method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: "",
+            body: JSON.stringify({ productId }),
         });
         // JSON形式でレスポンスを取得
         const result = await response.json();
+        console.log('Add to Cart Result:', result);
 
         // カート更新結果をチェック
         if (result.status === 'success') {
