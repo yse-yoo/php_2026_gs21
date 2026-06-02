@@ -23,7 +23,7 @@ window.initMap = function initMap() {
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: defaultPlace.position,
-    zoom: 14,
+    zoom: 15,
     mapTypeControl: false,
     streetViewControl: false,
     fullscreenControl: true,

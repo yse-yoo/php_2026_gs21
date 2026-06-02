@@ -30,6 +30,22 @@ $spots = [
         ],
         'address' => '東京都新宿区内藤町11',
     ],
+    [
+        'name' => '沖縄',
+        'position' => [
+            'lat' => 26.204401,
+            'lng' => 127.679358,
+        ],
+        'address' => '沖縄県那覇市',
+    ],
+    [
+        'name' => 'バングラディッシュ、ダッカ',
+        'position' => [
+            'lat' => 23.702,
+            'lng' => 90.366,
+        ],
+        'address' => 'ダッカ',
+    ]
 ];
 
 echo json_encode($spots, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
