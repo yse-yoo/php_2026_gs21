@@ -9,7 +9,7 @@ const ctx = document.getElementById('barChart').getContext('2d');
 const labels = ['Red', 'Blue', 'Yellow'];
 
 // 各ラベルの票数: values
-const values = [12, 19, 3];
+const values = [18, 15, 8];
 
 // グラフの色: colors
 const colors = [
