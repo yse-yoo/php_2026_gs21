@@ -58,7 +58,7 @@ function createChart(chartConfig) {
     chartConfig.options.plugins.title = Object.assign(chartCustom.title, chartConfig.options.plugins.title);
 
     // TODO: 新しいチャートを作成
-    // playerChart = new Chart(ctx, chartConfig);
+    playerChart = new Chart(ctx, chartConfig);
 }
 
 // サムネイル生成とクリックイベント
@@ -77,7 +77,7 @@ function createThumbnail(player) {
     thumb.className = 'w-20 h-20 object-cover cursor-pointer border-2 border-cyan-900/60 transition-all duration-200 opacity-50 hover:opacity-90';
 
     // TODO: クリックでプレイヤーデータを読み込む
-    thumb.addEventListener('', () => loadPlayer(player.id));
+    thumb.addEventListener('click', () => loadPlayer(player.id));
     return thumb;
 }
 
