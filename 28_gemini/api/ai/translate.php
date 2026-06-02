@@ -43,5 +43,5 @@ $posts['status'] = $posts['translate'] === null ? 'error' : 'success';
 
 // JSON形式でレスポンス
 // TODO: JSON形式に変換
-$json = "";
+$json = json_encode($posts, JSON_UNESCAPED_UNICODE);
 echo $json;
