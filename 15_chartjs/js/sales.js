@@ -54,7 +54,7 @@ function createSalesChart(type) {
     ds.fill            = type === 'line';
     ds.pointRadius     = type === 'line' ? 4 : 0;
     // TODO: チャート作成
-    // salesChart = new Chart(ctx, { type, data: salesData, options: salesOptions });
+    salesChart = new Chart(ctx, { type, data: salesData, options: salesOptions });
 }
 
 // ソフトウェアチャートの生成（チャート設定はそのまま）
@@ -63,7 +63,7 @@ function createSoftwaresChart(type) {
     // コンテキストの取得
     const ctx = document.getElementById('softwares-chart').getContext('2d');
     // TODO: チャート作成
-    // softwaresChart = new Chart(ctx, { type, data: softwaresData, options: softwaresOptions });
+    softwaresChart = new Chart(ctx, { type, data: softwaresData, options: softwaresOptions });
 }
 
 // 統計の表示（そのまま使ってOK）
@@ -114,10 +114,10 @@ doughnutBtn.addEventListener('click', () => {
 (async function init() {
     try {
         // TODO: Promise.all を使って, 非同期で同時に取得
-        // [salesData, softwaresData] = await Promise.all([
-        //     fetch('api/sales.json').then(r => r.json()),
-        //     fetch('api/softwares.json').then(r => r.json()),
-        // ]);
+        [salesData, softwaresData] = await Promise.all([
+            fetch('api/sales.json').then(r => r.json()),
+            fetch('api/softwares.json').then(r => r.json()),
+        ]);
     } catch {
         document.getElementById('message-container').textContent = 'データの取得に失敗しました';
         return;
